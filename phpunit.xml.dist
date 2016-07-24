@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo SSmaker-Server
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    SSmaker-Server
+    @license    MIT
+    @copyright  Copyright (C) JBZoo.com,  All rights reserved.
+    @link       https://github.com/JBZoo/SSmaker-Server
+-->
+<phpunit bootstrap="tests/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         syntaxCheck="true"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
+         stopOnRisky="false"
+         verbose="false"
+        >
+
+    <php>
+        <env name="WEB_HOST" value="127.0.0.1"/>
+        <env name="WEB_PORT" value="8081"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="General">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter>
+
+</phpunit>

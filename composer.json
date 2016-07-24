@@ -1,0 +1,42 @@
+{
+    "name"        : "jbzoo/ssmaker-server",
+    "description" : "Alternative server for SSmaker",
+    "keywords"    : ["ssmaker", "server", "client", "jbzoo", "screenshort"],
+    "homepage"    : "https://github.com/JBZoo/SSmaker-Server",
+    "license"     : "MIT",
+    "authors"     : [
+        {
+            "name"  : "SmetDenis",
+            "email" : "denis@jbzoo.com",
+            "role"  : "lead"
+        }
+    ],
+    "require"     : {
+        "php"             : ">=5.5.0",
+        "ext-soap"        : "*",
+        "slim/slim"       : "^3.1",
+        "slim/php-view"   : "^2.0",
+        "slim/twig-view"  : "^2.1",
+        "jbzoo/image"     : "^3.0",
+        "jbzoo/utils"     : "^1.7",
+        "monolog/monolog" : "^1.17",
+        "jbzoo/less": "^1.0",
+        "oyejorge/less.php": "v1.7.0.10"
+    },
+    "require-dev" : {
+        "jbzoo/phpunit" : "^1.5.12"
+    },
+    "extra"       : {
+        "branch-alias" : {
+            "dev-master" : "1.x-dev"
+        }
+    },
+    "config"      : {
+        "optimize-autoloader" : true
+    },
+    "autoload"    : {
+        "psr-4" : {
+            "JBZoo\\SsmakerServer\\" : "src/inc"
+        }
+    }
+}

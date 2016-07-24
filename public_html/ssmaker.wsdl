@@ -1,0 +1,1069 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ssmaker.ru/"
+                  xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://ssmaker.ru/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://ssmaker.ru/">
+            <s:import namespace="http://microsoft.com/wsdl/types/"/>
+            <s:element name="UploadScreenShot">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="image" type="s:base64Binary"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="ext" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="UploadScreenShotResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="UploadScreenShotResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="UploadScreenShot2">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="image" type="s:base64Binary"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="ext" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="GroupsList" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="ProgramBuild" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="UploadScreenShot2Response">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="UploadScreenShot2Result" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="UploadScreenShot3">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="image" type="s:base64Binary"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="ext" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="GroupsList" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="ProgramBuild" type="s:int"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="IsFavorite" type="s:boolean"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="UploadScreenShot3Response">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="UploadScreenShot3Result" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetMyScreenShotsList">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetMyScreenShotsListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetMyScreenShotsListResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:any minOccurs="0" maxOccurs="unbounded"
+                                           namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+                                    <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1"
+                                           processContents="lax"/>
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="RemoveScreenShot">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="SSCode" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="RemoveScreenShotResponse">
+                <s:complexType/>
+            </s:element>
+            <s:element name="GetLastBuild">
+                <s:complexType/>
+            </s:element>
+            <s:element name="GetLastBuildResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="GetLastBuildResult" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="RegisterUser">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="RegisterUserResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="RegisterUserResult" type="s1:guid"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="LoginUser">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="CurrentUserCode" nillable="true" type="s1:guid"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="LoginUserResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="LoginUserResult" type="s1:guid"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetScreenshotsQuan">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetScreenshotsQuanResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="GetScreenshotsQuanResult" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="MakeWebScreenshot">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="url" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="bWidth" type="s:int"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="bHeight" type="s:int"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="pWidth" type="s:int"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="IsFullHeight" type="s:boolean"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="ext" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="cd" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="MakeWebScreenshotResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="MakeWebScreenshotResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="RemindPassword">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="RemindPasswordResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="RemindPasswordResult" type="s:boolean"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ChangePassword">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="OldPassword" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="NewPassword" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ChangePasswordResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ChangePasswordResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GroupAddEdit">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="GroupID" nillable="true" type="s:int"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="IsPublic" type="s:boolean"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GroupAddEditResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="GroupAddEditResult" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GroupRemove">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="GroupID" nillable="true" type="s:int"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GroupRemoveResponse">
+                <s:complexType/>
+            </s:element>
+            <s:element name="GroupsGet">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GroupsGetResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GroupsGetResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:any minOccurs="0" maxOccurs="unbounded"
+                                           namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+                                    <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1"
+                                           processContents="lax"/>
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GroupGetUsers">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GroupGetUsersResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GroupGetUsersResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:any minOccurs="0" maxOccurs="unbounded"
+                                           namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+                                    <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1"
+                                           processContents="lax"/>
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GroupLoad">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GroupLoadResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GroupLoadResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:any minOccurs="0" maxOccurs="unbounded"
+                                           namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+                                    <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1"
+                                           processContents="lax"/>
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GroupGetPossibleSortIDs">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GroupGetPossibleSortIDsResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GroupGetPossibleSortIDsResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:any minOccurs="0" maxOccurs="unbounded"
+                                           namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+                                    <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1"
+                                           processContents="lax"/>
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="UserAddToGroup">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="UserAddToGroupResponse">
+                <s:complexType/>
+            </s:element>
+            <s:element name="UserGroupChangeSort">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="Sort" nillable="true" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="UserGroupChangeSortResponse">
+                <s:complexType/>
+            </s:element>
+            <s:element name="UserRemoveFromGroup">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="UserRemoveFromGroupResponse">
+                <s:complexType/>
+            </s:element>
+            <s:element name="OneTimeCodeGet">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UserCode" type="s1:guid"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="OneTimeCodeGetResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="OneTimeCodeGetResult" type="s1:guid"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="TestX2">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="x" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="TestX2Response">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="TestX2Result" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+            <s:simpleType name="guid">
+                <s:restriction base="s:string">
+                    <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+                </s:restriction>
+            </s:simpleType>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="UploadScreenShotSoapIn">
+        <wsdl:part name="parameters" element="tns:UploadScreenShot"/>
+    </wsdl:message>
+    <wsdl:message name="UploadScreenShotSoapOut">
+        <wsdl:part name="parameters" element="tns:UploadScreenShotResponse"/>
+    </wsdl:message>
+    <wsdl:message name="UploadScreenShot2SoapIn">
+        <wsdl:part name="parameters" element="tns:UploadScreenShot2"/>
+    </wsdl:message>
+    <wsdl:message name="UploadScreenShot2SoapOut">
+        <wsdl:part name="parameters" element="tns:UploadScreenShot2Response"/>
+    </wsdl:message>
+    <wsdl:message name="UploadScreenShot3SoapIn">
+        <wsdl:part name="parameters" element="tns:UploadScreenShot3"/>
+    </wsdl:message>
+    <wsdl:message name="UploadScreenShot3SoapOut">
+        <wsdl:part name="parameters" element="tns:UploadScreenShot3Response"/>
+    </wsdl:message>
+    <wsdl:message name="GetMyScreenShotsListSoapIn">
+        <wsdl:part name="parameters" element="tns:GetMyScreenShotsList"/>
+    </wsdl:message>
+    <wsdl:message name="GetMyScreenShotsListSoapOut">
+        <wsdl:part name="parameters" element="tns:GetMyScreenShotsListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="RemoveScreenShotSoapIn">
+        <wsdl:part name="parameters" element="tns:RemoveScreenShot"/>
+    </wsdl:message>
+    <wsdl:message name="RemoveScreenShotSoapOut">
+        <wsdl:part name="parameters" element="tns:RemoveScreenShotResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetLastBuildSoapIn">
+        <wsdl:part name="parameters" element="tns:GetLastBuild"/>
+    </wsdl:message>
+    <wsdl:message name="GetLastBuildSoapOut">
+        <wsdl:part name="parameters" element="tns:GetLastBuildResponse"/>
+    </wsdl:message>
+    <wsdl:message name="RegisterUserSoapIn">
+        <wsdl:part name="parameters" element="tns:RegisterUser"/>
+    </wsdl:message>
+    <wsdl:message name="RegisterUserSoapOut">
+        <wsdl:part name="parameters" element="tns:RegisterUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="LoginUserSoapIn">
+        <wsdl:part name="parameters" element="tns:LoginUser"/>
+    </wsdl:message>
+    <wsdl:message name="LoginUserSoapOut">
+        <wsdl:part name="parameters" element="tns:LoginUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetScreenshotsQuanSoapIn">
+        <wsdl:part name="parameters" element="tns:GetScreenshotsQuan"/>
+    </wsdl:message>
+    <wsdl:message name="GetScreenshotsQuanSoapOut">
+        <wsdl:part name="parameters" element="tns:GetScreenshotsQuanResponse"/>
+    </wsdl:message>
+    <wsdl:message name="MakeWebScreenshotSoapIn">
+        <wsdl:part name="parameters" element="tns:MakeWebScreenshot"/>
+    </wsdl:message>
+    <wsdl:message name="MakeWebScreenshotSoapOut">
+        <wsdl:part name="parameters" element="tns:MakeWebScreenshotResponse"/>
+    </wsdl:message>
+    <wsdl:message name="RemindPasswordSoapIn">
+        <wsdl:part name="parameters" element="tns:RemindPassword"/>
+    </wsdl:message>
+    <wsdl:message name="RemindPasswordSoapOut">
+        <wsdl:part name="parameters" element="tns:RemindPasswordResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ChangePasswordSoapIn">
+        <wsdl:part name="parameters" element="tns:ChangePassword"/>
+    </wsdl:message>
+    <wsdl:message name="ChangePasswordSoapOut">
+        <wsdl:part name="parameters" element="tns:ChangePasswordResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GroupAddEditSoapIn">
+        <wsdl:part name="parameters" element="tns:GroupAddEdit"/>
+    </wsdl:message>
+    <wsdl:message name="GroupAddEditSoapOut">
+        <wsdl:part name="parameters" element="tns:GroupAddEditResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GroupRemoveSoapIn">
+        <wsdl:part name="parameters" element="tns:GroupRemove"/>
+    </wsdl:message>
+    <wsdl:message name="GroupRemoveSoapOut">
+        <wsdl:part name="parameters" element="tns:GroupRemoveResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GroupsGetSoapIn">
+        <wsdl:part name="parameters" element="tns:GroupsGet"/>
+    </wsdl:message>
+    <wsdl:message name="GroupsGetSoapOut">
+        <wsdl:part name="parameters" element="tns:GroupsGetResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GroupGetUsersSoapIn">
+        <wsdl:part name="parameters" element="tns:GroupGetUsers"/>
+    </wsdl:message>
+    <wsdl:message name="GroupGetUsersSoapOut">
+        <wsdl:part name="parameters" element="tns:GroupGetUsersResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GroupLoadSoapIn">
+        <wsdl:part name="parameters" element="tns:GroupLoad"/>
+    </wsdl:message>
+    <wsdl:message name="GroupLoadSoapOut">
+        <wsdl:part name="parameters" element="tns:GroupLoadResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GroupGetPossibleSortIDsSoapIn">
+        <wsdl:part name="parameters" element="tns:GroupGetPossibleSortIDs"/>
+    </wsdl:message>
+    <wsdl:message name="GroupGetPossibleSortIDsSoapOut">
+        <wsdl:part name="parameters" element="tns:GroupGetPossibleSortIDsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="UserAddToGroupSoapIn">
+        <wsdl:part name="parameters" element="tns:UserAddToGroup"/>
+    </wsdl:message>
+    <wsdl:message name="UserAddToGroupSoapOut">
+        <wsdl:part name="parameters" element="tns:UserAddToGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="UserGroupChangeSortSoapIn">
+        <wsdl:part name="parameters" element="tns:UserGroupChangeSort"/>
+    </wsdl:message>
+    <wsdl:message name="UserGroupChangeSortSoapOut">
+        <wsdl:part name="parameters" element="tns:UserGroupChangeSortResponse"/>
+    </wsdl:message>
+    <wsdl:message name="UserRemoveFromGroupSoapIn">
+        <wsdl:part name="parameters" element="tns:UserRemoveFromGroup"/>
+    </wsdl:message>
+    <wsdl:message name="UserRemoveFromGroupSoapOut">
+        <wsdl:part name="parameters" element="tns:UserRemoveFromGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="OneTimeCodeGetSoapIn">
+        <wsdl:part name="parameters" element="tns:OneTimeCodeGet"/>
+    </wsdl:message>
+    <wsdl:message name="OneTimeCodeGetSoapOut">
+        <wsdl:part name="parameters" element="tns:OneTimeCodeGetResponse"/>
+    </wsdl:message>
+    <wsdl:message name="TestX2SoapIn">
+        <wsdl:part name="parameters" element="tns:TestX2"/>
+    </wsdl:message>
+    <wsdl:message name="TestX2SoapOut">
+        <wsdl:part name="parameters" element="tns:TestX2Response"/>
+    </wsdl:message>
+    <wsdl:portType name="wsSSMakerSoap">
+        <wsdl:operation name="UploadScreenShot">
+            <wsdl:input message="tns:UploadScreenShotSoapIn"/>
+            <wsdl:output message="tns:UploadScreenShotSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="UploadScreenShot2">
+            <wsdl:input message="tns:UploadScreenShot2SoapIn"/>
+            <wsdl:output message="tns:UploadScreenShot2SoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="UploadScreenShot3">
+            <wsdl:input message="tns:UploadScreenShot3SoapIn"/>
+            <wsdl:output message="tns:UploadScreenShot3SoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetMyScreenShotsList">
+            <wsdl:input message="tns:GetMyScreenShotsListSoapIn"/>
+            <wsdl:output message="tns:GetMyScreenShotsListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveScreenShot">
+            <wsdl:input message="tns:RemoveScreenShotSoapIn"/>
+            <wsdl:output message="tns:RemoveScreenShotSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLastBuild">
+            <wsdl:input message="tns:GetLastBuildSoapIn"/>
+            <wsdl:output message="tns:GetLastBuildSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="RegisterUser">
+            <wsdl:input message="tns:RegisterUserSoapIn"/>
+            <wsdl:output message="tns:RegisterUserSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="LoginUser">
+            <wsdl:input message="tns:LoginUserSoapIn"/>
+            <wsdl:output message="tns:LoginUserSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetScreenshotsQuan">
+            <wsdl:input message="tns:GetScreenshotsQuanSoapIn"/>
+            <wsdl:output message="tns:GetScreenshotsQuanSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="MakeWebScreenshot">
+            <wsdl:input message="tns:MakeWebScreenshotSoapIn"/>
+            <wsdl:output message="tns:MakeWebScreenshotSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemindPassword">
+            <wsdl:input message="tns:RemindPasswordSoapIn"/>
+            <wsdl:output message="tns:RemindPasswordSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="ChangePassword">
+            <wsdl:input message="tns:ChangePasswordSoapIn"/>
+            <wsdl:output message="tns:ChangePasswordSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GroupAddEdit">
+            <wsdl:input message="tns:GroupAddEditSoapIn"/>
+            <wsdl:output message="tns:GroupAddEditSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GroupRemove">
+            <wsdl:input message="tns:GroupRemoveSoapIn"/>
+            <wsdl:output message="tns:GroupRemoveSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GroupsGet">
+            <wsdl:input message="tns:GroupsGetSoapIn"/>
+            <wsdl:output message="tns:GroupsGetSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GroupGetUsers">
+            <wsdl:input message="tns:GroupGetUsersSoapIn"/>
+            <wsdl:output message="tns:GroupGetUsersSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GroupLoad">
+            <wsdl:input message="tns:GroupLoadSoapIn"/>
+            <wsdl:output message="tns:GroupLoadSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GroupGetPossibleSortIDs">
+            <wsdl:input message="tns:GroupGetPossibleSortIDsSoapIn"/>
+            <wsdl:output message="tns:GroupGetPossibleSortIDsSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="UserAddToGroup">
+            <wsdl:input message="tns:UserAddToGroupSoapIn"/>
+            <wsdl:output message="tns:UserAddToGroupSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="UserGroupChangeSort">
+            <wsdl:input message="tns:UserGroupChangeSortSoapIn"/>
+            <wsdl:output message="tns:UserGroupChangeSortSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="UserRemoveFromGroup">
+            <wsdl:input message="tns:UserRemoveFromGroupSoapIn"/>
+            <wsdl:output message="tns:UserRemoveFromGroupSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="OneTimeCodeGet">
+            <wsdl:input message="tns:OneTimeCodeGetSoapIn"/>
+            <wsdl:output message="tns:OneTimeCodeGetSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="TestX2">
+            <wsdl:input message="tns:TestX2SoapIn"/>
+            <wsdl:output message="tns:TestX2SoapOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="wsSSMakerSoap" type="tns:wsSSMakerSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="UploadScreenShot">
+            <soap:operation soapAction="http://ssmaker.ru/UploadScreenShot" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UploadScreenShot2">
+            <soap:operation soapAction="http://ssmaker.ru/UploadScreenShot2" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UploadScreenShot3">
+            <soap:operation soapAction="http://ssmaker.ru/UploadScreenShot3" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetMyScreenShotsList">
+            <soap:operation soapAction="http://ssmaker.ru/GetMyScreenShotsList" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveScreenShot">
+            <soap:operation soapAction="http://ssmaker.ru/RemoveScreenShot" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLastBuild">
+            <soap:operation soapAction="http://ssmaker.ru/GetLastBuild" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegisterUser">
+            <soap:operation soapAction="http://ssmaker.ru/RegisterUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LoginUser">
+            <soap:operation soapAction="http://ssmaker.ru/LoginUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetScreenshotsQuan">
+            <soap:operation soapAction="http://ssmaker.ru/GetScreenshotsQuan" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MakeWebScreenshot">
+            <soap:operation soapAction="http://ssmaker.ru/MakeWebScreenshot" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemindPassword">
+            <soap:operation soapAction="http://ssmaker.ru/RemindPassword" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChangePassword">
+            <soap:operation soapAction="http://ssmaker.ru/ChangePassword" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GroupAddEdit">
+            <soap:operation soapAction="http://ssmaker.ru/GroupAddEdit" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GroupRemove">
+            <soap:operation soapAction="http://ssmaker.ru/GroupRemove" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GroupsGet">
+            <soap:operation soapAction="http://ssmaker.ru/GroupsGet" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GroupGetUsers">
+            <soap:operation soapAction="http://ssmaker.ru/GroupGetUsers" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GroupLoad">
+            <soap:operation soapAction="http://ssmaker.ru/GroupLoad" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GroupGetPossibleSortIDs">
+            <soap:operation soapAction="http://ssmaker.ru/GroupGetPossibleSortIDs" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UserAddToGroup">
+            <soap:operation soapAction="http://ssmaker.ru/UserAddToGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UserGroupChangeSort">
+            <soap:operation soapAction="http://ssmaker.ru/UserGroupChangeSort" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UserRemoveFromGroup">
+            <soap:operation soapAction="http://ssmaker.ru/UserRemoveFromGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="OneTimeCodeGet">
+            <soap:operation soapAction="http://ssmaker.ru/OneTimeCodeGet" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="TestX2">
+            <soap:operation soapAction="http://ssmaker.ru/TestX2" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="wsSSMakerSoap12" type="tns:wsSSMakerSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="UploadScreenShot">
+            <soap12:operation soapAction="http://ssmaker.ru/UploadScreenShot" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UploadScreenShot2">
+            <soap12:operation soapAction="http://ssmaker.ru/UploadScreenShot2" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UploadScreenShot3">
+            <soap12:operation soapAction="http://ssmaker.ru/UploadScreenShot3" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetMyScreenShotsList">
+            <soap12:operation soapAction="http://ssmaker.ru/GetMyScreenShotsList" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveScreenShot">
+            <soap12:operation soapAction="http://ssmaker.ru/RemoveScreenShot" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLastBuild">
+            <soap12:operation soapAction="http://ssmaker.ru/GetLastBuild" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegisterUser">
+            <soap12:operation soapAction="http://ssmaker.ru/RegisterUser" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LoginUser">
+            <soap12:operation soapAction="http://ssmaker.ru/LoginUser" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetScreenshotsQuan">
+            <soap12:operation soapAction="http://ssmaker.ru/GetScreenshotsQuan" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MakeWebScreenshot">
+            <soap12:operation soapAction="http://ssmaker.ru/MakeWebScreenshot" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemindPassword">
+            <soap12:operation soapAction="http://ssmaker.ru/RemindPassword" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChangePassword">
+            <soap12:operation soapAction="http://ssmaker.ru/ChangePassword" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GroupAddEdit">
+            <soap12:operation soapAction="http://ssmaker.ru/GroupAddEdit" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GroupRemove">
+            <soap12:operation soapAction="http://ssmaker.ru/GroupRemove" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GroupsGet">
+            <soap12:operation soapAction="http://ssmaker.ru/GroupsGet" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GroupGetUsers">
+            <soap12:operation soapAction="http://ssmaker.ru/GroupGetUsers" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GroupLoad">
+            <soap12:operation soapAction="http://ssmaker.ru/GroupLoad" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GroupGetPossibleSortIDs">
+            <soap12:operation soapAction="http://ssmaker.ru/GroupGetPossibleSortIDs" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UserAddToGroup">
+            <soap12:operation soapAction="http://ssmaker.ru/UserAddToGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UserGroupChangeSort">
+            <soap12:operation soapAction="http://ssmaker.ru/UserGroupChangeSort" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UserRemoveFromGroup">
+            <soap12:operation soapAction="http://ssmaker.ru/UserRemoveFromGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="OneTimeCodeGet">
+            <soap12:operation soapAction="http://ssmaker.ru/OneTimeCodeGet" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="TestX2">
+            <soap12:operation soapAction="http://ssmaker.ru/TestX2" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="wsSSMaker">
+        <wsdl:port name="wsSSMakerSoap" binding="tns:wsSSMakerSoap">
+            <soap:address location="http://ssmaker.ru/wsSSMaker.asmx"/>
+        </wsdl:port>
+        <wsdl:port name="wsSSMakerSoap12" binding="tns:wsSSMakerSoap12">
+            <soap12:address location="http://ssmaker.ru/wsSSMaker.asmx"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
