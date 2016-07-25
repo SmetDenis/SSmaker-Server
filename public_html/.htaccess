@@ -1,6 +1,19 @@
+#
+# JBZoo SSmaker-Server
+#
+# This file is part of the JBZoo CCK package.
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+# @package   SSmaker-Server
+# @license   MIT
+# @copyright Copyright (C) JBZoo.com,  All rights reserved.
+# @link      https://github.com/JBZoo/SSmaker-Server
+#
+
 RewriteEngine On
 
-RewriteBase /
+# RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+) index.php [QSA,L]
