@@ -3,6 +3,7 @@
 build:
 	composer self-update --no-interaction
 	composer update --optimize-autoloader --no-interaction
+	chmod +x ./tests/bin/server.sh
 
 test: server
 	./vendor/bin/phpunit
