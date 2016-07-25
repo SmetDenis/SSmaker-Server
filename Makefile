@@ -14,8 +14,8 @@ test-all: build test
 	./vendor/bin/phpcpd ./src --verbose
 	./vendor/bin/phploc ./src --verbose
 
-server
+server:
 	./tests/bin/server.sh
 
-coveralls
+coveralls:
 	./vendor/bin/coveralls --verbose
