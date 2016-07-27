@@ -14,6 +14,7 @@
 
 namespace JBZoo\PHPUnit;
 
+use JBZoo\Image\Image;
 use JBZoo\SSmakerServer\Soap;
 use JBZoo\Utils\Env;
 use JBZoo\Utils\Url;
@@ -25,16 +26,19 @@ use JBZoo\Utils\Url;
 class SoapTest extends PHPUnit
 {
     /**
-     * @return Soap
+     * @return Soap|\SoapClient
      */
     protected function _getClient()
     {
         $host = Env::get('WEB_HOST', '127.0.0.1', Env::VAR_STRING);
         $port = Env::get('WEB_PORT', '8081', Env::VAR_STRING);
-        $wsdl = Url::create(['host' => $host, 'port' => $port, 'path' => 'ssmaker.wsdl']);
+        $loc  = Url::create(['host' => $host, 'port' => $port, 'path' => 'wsSSMaker.asmx']);
 
         /** @var Soap $client */
-        $client = new \SoapClient($wsdl);
+        $client = new \SoapClient($loc . '?WSDL', [
+            'trace'    => true,
+            'location' => $loc
+        ]);
 
         return $client;
     }
@@ -43,6 +47,21 @@ class SoapTest extends PHPUnit
     {
         $result = (array)$this->_getClient()->getLastBuild();
 
-        isTrue(5290, $result['GetLastBuildResult'] > 0);
+        isSame(5290, $result['GetLastBuildResult']);
+    }
+
+    public function testUploadScreenShot3()
+    {
+        $file = (object)[
+            'UserCode'     => '7917e727-5057-4cd9-ad19-b8637e8121d6',
+            'image'        => file_get_contents(PROJECT_TESTS . '/resources/butterfly.png'),
+            'ext'          => 'png',
+            'ProgramBuild' => 5462,
+            'IsFavorite'   => false
+        ];
+
+        $result = (array)$this->_getClient()->uploadScreenShot3($file);
+
+        isTrue($result['UploadScreenShot3Result']);
     }
 }

@@ -19,14 +19,4 @@ WEB_PORT="8081"
 WEB_ROOT="$DIR/public_html"
 WEB_PATH="$WEB_ROOT/index.php"
 
-php -S "$WEB_HOST:$WEB_PORT" -t "$WEB_ROOT" "$WEB_PATH" &
-
-sleep 3s
-
-echo "Waiting until PHP webserver is ready on port 8081"
-while [[ -z `curl -s "http://$WEB_HOST:$WEB_PORT" ` ]]
-do
-    sleep 1s
-done
-
-echo "Webserver $WEB_HOST:$WEB_PORT started!"
+php -S "$WEB_HOST:$WEB_PORT" -t "$WEB_ROOT" "$WEB_PATH"

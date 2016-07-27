@@ -24,7 +24,8 @@
         "oyejorge/less.php" : "v1.7.0.10"
     },
     "require-dev" : {
-        "jbzoo/phpunit" : "1.x-dev"
+        "jbzoo/phpunit" : "1.x-dev",
+        "jbzoo/jbdump"  : "1.x-dev"
     },
     "extra"       : {
         "branch-alias" : {
@@ -36,7 +37,7 @@
     },
     "autoload"    : {
         "psr-4" : {
-            "JBZoo\\SsmakerServer\\" : "src/inc"
+            "JBZoo\\SSmakerServer\\" : "src"
         }
     }
 }

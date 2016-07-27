@@ -14,6 +14,9 @@
 
 namespace JBZoo\SSmakerServer;
 
+use JBZoo\Image\Image;
+use JBZoo\Utils\Str;
+
 /**
  * Class Soap
  * @package JBZoo\SSmakerServer
@@ -25,9 +28,7 @@ class Soap
      */
     public function getLastBuild()
     {
-        $result = ['GetLastBuildResult' => 5290];
-
-        return $result;
+        return ['GetLastBuildResult' => 5290];
     }
 
     /**
@@ -36,21 +37,11 @@ class Soap
      */
     public function uploadScreenShot3($file)
     {
-        $appImage = new AppImage();
+        $name  = Str::random() . '.' . strtolower($file->ext);
+        $image = new Image($file->image);
+        $image->saveAs(PATH_PUBLIC . '/images/' . $name, 100);
 
-        $name = $appImage->saveFile($file);
-        $url  = $appImage->getUrlByName($name);
-
-        $this->notifyToEmail(array(
-            'name' => $name,
-            'url'  => $url,
-        ));
-
-        $file->image = 'IMAGE_WAS_HERE';
-        $this->_log('UploadScreenShot3', $file);
-        $this->_log($url);
-
-        return array('UploadScreenShot3Result' => $url);
+        return array('UploadScreenShot3Result' => $image->getUrl());
     }
 
     /**
