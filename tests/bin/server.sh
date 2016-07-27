@@ -22,3 +22,5 @@ WEB_PATH="$WEB_ROOT/index.php"
 cd $DIR
 
 php -S "$WEB_HOST:$WEB_PORT" -t "$WEB_ROOT" "$WEB_PATH" &
+
+sleep 3s
