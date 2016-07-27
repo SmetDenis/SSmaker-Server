@@ -13,16 +13,11 @@
 # @link      https://github.com/JBZoo/SSmaker-Server
 #
 
-DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR="."
 WEB_HOST="127.0.0.1"
 WEB_PORT="8081"
-WEB_ROOT="$DIR/../../public_html"
+WEB_ROOT="$DIR/public_html"
 WEB_PATH="$WEB_ROOT/index.php"
-
-echo $DIR
-echo $WEB_ROOT
-echo $WEB_PATH
-cd $DIR
 
 php -S "$WEB_HOST:$WEB_PORT" -t "$WEB_ROOT" "$WEB_PATH" &
 
