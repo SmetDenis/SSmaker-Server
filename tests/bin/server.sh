@@ -19,4 +19,6 @@ WEB_PORT="8081"
 WEB_ROOT="$DIR/public_html"
 WEB_PATH="$WEB_ROOT/index.php"
 
-php -S "$WEB_HOST:$WEB_PORT" -t "$WEB_ROOT" "$WEB_PATH"
+php -S "$WEB_HOST:$WEB_PORT" -t "$WEB_ROOT" "$WEB_PATH" &
+
+sleep 3s
