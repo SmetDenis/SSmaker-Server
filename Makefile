@@ -39,7 +39,6 @@ autoload:
 	@echo ""
 
 test:
-	@make server
 	@echo -e "\033[0;33m>>> >>> >>> >>> >>> >>> >>> >>> \033[0;30;46m Run unit-tests \033[0m"
 	@php ./vendor/phpunit/phpunit/phpunit --configuration ./phpunit.xml.dist
 	@echo ""
