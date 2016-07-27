@@ -54,7 +54,7 @@ class SoapTest extends PHPUnit
     {
         $file = (object)[
             'UserCode'     => '7917e727-5057-4cd9-ad19-b8637e8121d6',
-            'image'        => file_get_contents(PROJECT_TESTS . '/resources/butterfly.png'),
+            'image'        => file_get_contents(PROJECT_TESTS . '/images/butterfly.png'),
             'ext'          => 'png',
             'ProgramBuild' => 5462,
             'IsFavorite'   => false
