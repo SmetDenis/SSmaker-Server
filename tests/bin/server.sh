@@ -19,6 +19,9 @@ WEB_PORT="8081"
 WEB_ROOT="$DIR/../../public_html"
 WEB_PATH="$WEB_ROOT/index.php"
 
+echo $DIR
+echo $WEB_ROOT
+echo $WEB_PATH
 cd $DIR
 
 php -S "$WEB_HOST:$WEB_PORT" -t "$WEB_ROOT" "$WEB_PATH" &
@@ -32,4 +35,3 @@ do
 done
 
 echo "Webserver $WEB_HOST:$WEB_PORT started!"
-

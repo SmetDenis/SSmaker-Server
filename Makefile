@@ -16,8 +16,10 @@
 build: update
 
 server:
+	@echo -e "\033[0;33m>>> >>> >>> >>> >>> >>> >>> >>> \033[0;30;46m Start webserver \033[0m"
 	@chmod +x ./tests/bin/server.sh
 	@./tests/bin/server.sh
+	jobs
 
 test-all:
 	@echo -e "\033[0;33m>>> >>> >>> >>> >>> >>> >>> >>> \033[0;30;46m Run all tests \033[0m"
@@ -40,6 +42,8 @@ autoload:
 
 test:
 	@echo -e "\033[0;33m>>> >>> >>> >>> >>> >>> >>> >>> \033[0;30;46m Run unit-tests \033[0m"
+	jobs
+	@curl -s http://127.0.0.1:8081/
 	@php ./vendor/phpunit/phpunit/phpunit --configuration ./phpunit.xml.dist
 	@echo ""
 
