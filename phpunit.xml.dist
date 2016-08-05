@@ -27,8 +27,8 @@
 >
 
     <php>
-        <env name="WEB_HOST" value="127.0.0.1"/>
-        <env name="WEB_PORT" value="8081"/>
+        <env name="WEB_HOST" value="localhost"/>
+        <env name="WEB_PORT" value="8888"/>
     </php>
 
     <testsuites>
@@ -43,11 +43,9 @@
         </whitelist>
     </filter>
 
-    <!--
     <logging>
-        <log type="coverage-clover" target="build/logs/clover.xml"/>
+        <log type="coverage-clover" target="build/coverage_total/main.xml"/>
         <log type="coverage-text" target="php://stdout" showUncoveredFiles="false" showOnlySummary="true"/>
     </logging>
-    -->
 
 </phpunit>

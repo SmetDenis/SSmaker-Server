@@ -14,7 +14,6 @@
 
 namespace JBZoo\PHPUnit;
 
-use JBZoo\Image\Image;
 use JBZoo\SSmakerServer\Soap;
 use JBZoo\Utils\Env;
 use JBZoo\Utils\Url;
