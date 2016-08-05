@@ -21,7 +21,7 @@ server:
 	@./vendor/bin/phpunit-server.sh "localhost" "8888"  \
         "`pwd`/public_html"                             \
         "`pwd`/vendor/jbzoo/phpunit/bin/fake-index.php" \
-        "--index=`pwd`/public_html/index.php"
+        "--index=`pwd`/public_html/index.php --cov-html=1 --cov-cov=1"
 
 test-all:
 	@echo -e "\033[0;33m>>> >>> >>> >>> >>> >>> >>> >>> \033[0;30;46m Run all tests \033[0m"
@@ -76,9 +76,8 @@ reset:
 
 clean:
 	@echo -e "\033[0;33m>>> >>> >>> >>> >>> >>> >>> >>> \033[0;30;46m Cleanup build directory \033[0m"
-	@make clean-build
-	@rm -fr ./vendor
-	@rm -f  ./composer.lock
+	@rm -fr ./build
+	@mkdir -pv ./build
 
 clean-build:
 	@echo -e "\033[0;33m>>> >>> >>> >>> >>> >>> >>> >>> \033[0;30;46m Cleanup build directory \033[0m"
