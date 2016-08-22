@@ -17,6 +17,12 @@ use JBZoo\Utils\Url;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
+$_SERVER['SCRIPT_NAME'] = '/index.php'; // #FUCK!!! https://bugs.php.net/bug.php?id=61286
+
+if (!isset($app)) { // For PHPUnit reports
+    return;
+}
+
 /** @var \Slim\App $app */
 $app->any('/wsSSMaker.asmx', function (Request $req, Response $resp) {
 

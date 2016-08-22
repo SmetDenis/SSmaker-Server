@@ -20,7 +20,6 @@
         "jbzoo/image"       : "^3.0",
         "jbzoo/utils"       : "^1.7",
         "jbzoo/less"        : "^1.0",
-        "monolog/monolog"   : "^1.17",
         "oyejorge/less.php" : "v1.7.0.10"
     },
     "require-dev" : {

@@ -12,6 +12,10 @@
  * @link      https://github.com/JBZoo/SSmaker-Server
  */
 
+if (!isset($container)) { // For PHPUnit reports
+    return;
+}
+
 /** @var Pimple\Container $container */
 /** @var Slim\App $app */
 $container = $app->getContainer();
