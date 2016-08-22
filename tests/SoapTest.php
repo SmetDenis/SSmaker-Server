@@ -14,7 +14,6 @@
 
 namespace JBZoo\PHPUnit;
 
-use JBZoo\Image\Image;
 use JBZoo\SSmakerServer\Soap;
 use JBZoo\Utils\Env;
 use JBZoo\Utils\Url;
@@ -36,8 +35,9 @@ class SoapTest extends PHPUnit
 
         /** @var Soap $client */
         $client = new \SoapClient($loc . '?WSDL', [
-            'trace'    => true,
-            'location' => $loc
+            'trace'      => true,
+            //'exceptions' => false,
+            'location'   => $loc
         ]);
 
         return $client;
@@ -45,7 +45,13 @@ class SoapTest extends PHPUnit
 
     public function testGetLastBuild()
     {
-        $result = (array)$this->_getClient()->getLastBuild();
+        $client = $this->_getClient();
+
+        try {
+            $result = (array)$client->getLastBuild();
+        } catch (\Exception $e) {
+            dump($client->__getLastResponse());
+        }
 
         isSame(5290, $result['GetLastBuildResult']);
     }

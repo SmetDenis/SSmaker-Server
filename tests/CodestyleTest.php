@@ -21,5 +21,4 @@ namespace JBZoo\PHPUnit;
 class CodestyleTest extends Codestyle
 {
     protected $_packageName = "SSmaker-Server";
-    protected $_packageAuthor = 'Denis Smetannikov <denis@jbzoo.com>';
 }
